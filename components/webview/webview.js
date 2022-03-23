@@ -9,12 +9,12 @@ const BaseWebview = React.forwardRef(({ path = '', injectedJavaScript, ...rest }
 				ref={ref}
 				style={{ flex: 1, flexGrow: 1 }}
 				injectedJavaScriptBeforeContentLoaded={`
-                     window.isNativeIosApp = true;
+                     window.isNativeApp = true;
                      
                      ${injectedJavaScript};
                        
                      `}
-				source={{ uri: `http://localhost:3000/${path}` }}
+				source={{ uri: `http://www.memeking.co.il/${path}` }}
 				{...rest}
 			/>
 		</View>

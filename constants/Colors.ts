@@ -17,5 +17,14 @@ export default {
 		tabIconSelected: tintColorDark,
 	},
 	brand: '#5f4afb',
-	brandDarken: '#5f4afb',
+	brandDarken: '#524A74',
+	brandLight: '#b3a8fd',
+
+	gray30: '#4d4d4d',
+	gray40: '#666',
+	gray50: '#808080',
+	gray80: '#ccc',
+	gray90: '#e6e6e6',
+	gray95: '#f2f2f2',
+	black: '#000',
 };

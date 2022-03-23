@@ -20,6 +20,7 @@ const modes = {
 export default function Generator({ route }) {
 	const mode = route.params.mode;
 	const image = route.params.image;
+	const path = route.params.path;
 
 	const onSave = async event => {
 		const data = event.nativeEvent.data;
@@ -50,7 +51,7 @@ export default function Generator({ route }) {
 		<View style={styles.container}>
 			<BaseWebview
 				onMessage={onSave}
-				path={modes[mode].path}
+				path={path || modes[mode].path}
 				injectedJavaScript={modes[mode]?.getInjectedJs?.({ image })}
 			/>
 		</View>

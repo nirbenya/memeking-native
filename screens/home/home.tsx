@@ -1,9 +1,10 @@
 import { StyleSheet, Image } from 'react-native';
 
-import { Text, View } from '../components/Themed';
-import { RootTabScreenProps } from '../types';
-import Button from '../components/Button/Button';
+import { Text, View } from '../../components/Themed';
+import { RootTabScreenProps } from '../../types';
+import Button from '../../components/Button/Button';
 import * as ImagePicker from 'expo-image-picker';
+import Colors from '../../constants/Colors';
 
 export default function Home({ navigation }: RootTabScreenProps<'Home'>) {
 	const pickImage = async () => {
@@ -23,15 +24,21 @@ export default function Home({ navigation }: RootTabScreenProps<'Home'>) {
 				key: 'generator-upload',
 				params: { mode: 'upload', image: result.base64 },
 			});
-			//alert(JSON.stringify(result.base64).slice(0, 100));
 		}
 	};
 	return (
 		<View style={styles.container}>
-			<Image style={{ width: 100, height: 100 }} source={require('../assets/images/app-icon.png')} />
+			<Image
+				style={{ width: 100, height: 100 }}
+				source={require('../../assets/images/app-icon-transparent.png')}
+			/>
 
-			<Button onPress={pickImage}>העלאת תמונה</Button>
+			<Button icon={'upload'} variant={'secondary'} onPress={pickImage}>
+				העלאת תמונה
+			</Button>
 			<Button
+				icon={'square'}
+				variant={'secondary'}
 				onPress={() =>
 					navigation.navigate({ name: 'Generator', key: 'clean-slate', params: { mode: 'clean' } })
 				}
@@ -47,6 +54,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		alignItems: 'center',
 		justifyContent: 'center',
+		backgroundColor: Colors.brand,
 	},
 	title: {
 		fontSize: 20,
