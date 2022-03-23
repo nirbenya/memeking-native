@@ -18,6 +18,7 @@ import Generator from '../screens/generator/generator';
 import Categories from '../screens/categories/categories';
 import CategoryGallery from '../screens/gallery/gallery';
 import PopularContainer from '../screens/popular/popular-container';
+import Search from '../screens/search/search';
 
 export default function Navigation({ colorScheme }) {
 	return (
@@ -38,8 +39,30 @@ function RootNavigator() {
 		<Stack.Navigator>
 			<Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
 			<Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
-			<Stack.Screen name="Generator" component={Generator} />
-			<Stack.Screen name="CategoryGallery" component={CategoryGallery} />
+			<Stack.Screen
+				options={{
+					headerTitleStyle,
+					headerStyle: { backgroundColor: Colors.brand },
+					headerBackTitleStyle: { color: 'white' },
+					headerBackTitle: 'חזרה',
+					headerTintColor: 'white',
+					title: 'עריכת מם',
+				}}
+				name="Generator"
+				component={Generator}
+			/>
+			<Stack.Screen
+				options={{
+					headerTitleStyle,
+					headerStyle: { backgroundColor: Colors.brand },
+					headerBackTitleStyle: { color: 'white' },
+					headerBackTitle: 'חזרה',
+					headerTintColor: 'white',
+					title: '',
+				}}
+				name="CategoryGallery"
+				component={CategoryGallery}
+			/>
 
 			<Stack.Group screenOptions={{ presentation: 'modal' }}>
 				{/*<Stack.Screen name="Modal" component={ModalScreen} />*/}
@@ -55,6 +78,7 @@ function RootNavigator() {
 const BottomTab = createBottomTabNavigator();
 
 const headerTitleStyle = { color: 'white', fontFamily: 'open-sans-hebrew-bold' };
+
 function BottomTabNavigator() {
 	const colorScheme = useColorScheme();
 
@@ -129,7 +153,7 @@ function BottomTabNavigator() {
 			/>
 			<BottomTab.Screen
 				name="Search"
-				component={Categories}
+				component={Search}
 				options={{
 					headerTitleStyle,
 

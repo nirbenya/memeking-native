@@ -10,7 +10,7 @@ import Input from '../../components/Input/Input';
 import SkeletonContent from 'react-native-skeleton-content';
 import Colors from '../../constants/Colors';
 
-function Gallery({ memes, onMemePress, isLoading }) {
+export function Gallery({ memes, onMemePress, isLoading }) {
 	return (
 		<View style={styles.container}>
 			<ScrollView contentContainerStyle={styles.scrollView}>
@@ -26,6 +26,7 @@ function Gallery({ memes, onMemePress, isLoading }) {
 							.fill(30)
 							.map(item => ({
 								...styles.image,
+								borderRadius: 0,
 								borderColor: 'white',
 								borderWidth: 1,
 							}))}
@@ -81,6 +82,7 @@ const CategoryGallery = ({ route, navigation, category: propCategory, withFilter
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
+		backgroundColor: Colors.brand,
 	},
 	scrollView: {
 		flexWrap: 'wrap',

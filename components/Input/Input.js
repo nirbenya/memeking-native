@@ -5,9 +5,9 @@ import { FontAwesome } from '@expo/vector-icons';
 // style
 import styles from './styles';
 
-const Input = ({ value, onChange, ...rest }) => {
+const Input = ({ value, onChange, style, ...rest }) => {
 	return (
-		<View style={styles.container}>
+		<View style={[styles.container, style]}>
 			<FontAwesome size={20} name={'search'} style={styles.icon} />
 			<TextInput
 				placeholderTextColor={'white'}
