@@ -140,7 +140,7 @@ const CategoryGallery = ({ route, navigation, category: propCategory, withFilter
 				onMemePress={id =>
 					navigation.navigate('Generator', {
 						key: 1,
-						path: `memes/${category}/generator/normal/${id}`,
+						path: `standalone-generator/normal/${id}`,
 					})
 				}
 				memes={memesArray.filter(meme => meme.description.toLowerCase().includes(searchText.toLowerCase()))}

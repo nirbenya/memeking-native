@@ -9,11 +9,11 @@ import * as MediaLibrary from 'expo-media-library';
 
 const modes = {
 	upload: {
-		path: 'generator/cropper/upload/normalFormat',
+		path: 'standalone-generator/cropper/111',
 		getInjectedJs: ({ image } = {}) => `window.cropperImage = '${image}';`,
 	},
 	clean: {
-		path: 'generator/clean-slate/111',
+		path: 'standalone-generator/clean-slate/111',
 	},
 };
 
