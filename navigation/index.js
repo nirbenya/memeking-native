@@ -120,47 +120,47 @@ function BottomTabNavigator() {
 					// ),
 				})}
 			/>
-			<BottomTab.Screen
-				name="Popular"
-				component={PopularContainer}
-				options={{
-					headerTitleStyle,
+			{/*<BottomTab.Screen*/}
+			{/*	name="Popular"*/}
+			{/*	component={PopularContainer}*/}
+			{/*	options={{*/}
+			{/*		headerTitleStyle,*/}
 
-					title: 'פופולארים',
-					tabBarIcon: ({ color }) => <TabBarIcon name="trophy" color={color} />,
-				}}
-			/>
-			<BottomTab.Screen
-				name="New"
-				component={CategoryGallery}
-				initialParams={{ category: 'new-memes' }}
-				options={{
-					headerTitleStyle,
+			{/*		title: 'פופולארים',*/}
+			{/*		tabBarIcon: ({ color }) => <TabBarIcon name="trophy" color={color} />,*/}
+			{/*	}}*/}
+			{/*/>*/}
+			{/*<BottomTab.Screen*/}
+			{/*	name="New"*/}
+			{/*	component={CategoryGallery}*/}
+			{/*	initialParams={{ category: 'new-memes' }}*/}
+			{/*	options={{*/}
+			{/*		headerTitleStyle,*/}
 
-					title: 'חדשים',
-					tabBarIcon: ({ color }) => <TabBarIcon name="bolt" color={color} />,
-				}}
-			/>
-			<BottomTab.Screen
-				name="Categories"
-				component={Categories}
-				options={{
-					headerTitleStyle,
+			{/*		title: 'חדשים',*/}
+			{/*		tabBarIcon: ({ color }) => <TabBarIcon name="bolt" color={color} />,*/}
+			{/*	}}*/}
+			{/*/>*/}
+			{/*<BottomTab.Screen*/}
+			{/*	name="Categories"*/}
+			{/*	component={Categories}*/}
+			{/*	options={{*/}
+			{/*		headerTitleStyle,*/}
 
-					title: 'קטגוריות',
-					tabBarIcon: ({ color }) => <TabBarIcon name="list" color={color} />,
-				}}
-			/>
-			<BottomTab.Screen
-				name="Search"
-				component={Search}
-				options={{
-					headerTitleStyle,
+			{/*		title: 'קטגוריות',*/}
+			{/*		tabBarIcon: ({ color }) => <TabBarIcon name="list" color={color} />,*/}
+			{/*	}}*/}
+			{/*/>*/}
+			{/*<BottomTab.Screen*/}
+			{/*	name="Search"*/}
+			{/*	component={Search}*/}
+			{/*	options={{*/}
+			{/*		headerTitleStyle,*/}
 
-					title: 'חיפוש',
-					tabBarIcon: ({ color }) => <TabBarIcon name="search" color={color} />,
-				}}
-			/>
+			{/*		title: 'חיפוש',*/}
+			{/*		tabBarIcon: ({ color }) => <TabBarIcon name="search" color={color} />,*/}
+			{/*	}}*/}
+			{/*/>*/}
 		</BottomTab.Navigator>
 	);
 }

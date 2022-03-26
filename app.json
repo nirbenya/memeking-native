@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "memeking-ios-2",
-    "slug": "memeking-ios-2",
-    "version": "1.4.0",
+    "name": "מלך הממים",
+    "slug": "memeking",
+    "version": "2.0.1",
     "orientation": "portrait",
     "icon": "./assets/images/app-icon.png",
     "scheme": "myapp",
@@ -10,24 +10,24 @@
     "splash": {
       "image": "./assets/images/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#5f4afb"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
     "plugins": [
       [
-        "expo-image-picker",
+        "expo-media-library",
         {
-          "photosPermission": "The app accesses your photos to let you share them with your friends."
+          "photosPermission": "Allow Memeking to access your photos.",
+          "savePhotosPermission": "Allow Memeking to save photos.",
+          "isAccessMediaLocationEnabled": "true"
         }
       ],
       [
-        "expo-media-library",
+        "expo-image-picker",
         {
-          "photosPermission": "Allow memeking to access your photos.",
-          "savePhotosPermission": "Allow memeking to save photos.",
-          "isAccessMediaLocationEnabled": "true"
+          "photosPermission": "Memeking accesses your photos to let you share them with your friends."
         }
       ]
     ],

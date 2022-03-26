@@ -14,7 +14,7 @@ const BaseWebview = React.forwardRef(({ path = '', injectedJavaScript, ...rest }
                      ${injectedJavaScript};
                        
                      `}
-				source={{ uri: `http://www.memeking.co.il/${path}` }}
+				source={{ uri: `https://www.memeking.co.il/${path}` }}
 				{...rest}
 			/>
 		</View>

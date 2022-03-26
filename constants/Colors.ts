@@ -27,4 +27,5 @@ export default {
 	gray90: '#e6e6e6',
 	gray95: '#f2f2f2',
 	black: '#000',
+	white: 'white',
 };

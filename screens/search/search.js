@@ -1,12 +1,12 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Image, View } from 'react-native';
 import Input from '../../components/Input/Input';
 import { useQuery } from 'react-query';
 import axios from 'axios';
 import { Gallery } from '../gallery/gallery';
 import _ from 'lodash';
 import Colors from '../../constants/Colors';
-
+import Text from '../../components/Text/Text';
 const useDebounce = (value, delay) => {
 	// State and setters for debounced value
 	const [debouncedValue, setDebouncedValue] = React.useState(value);
@@ -54,9 +54,20 @@ const Search = ({ navigation }) => {
 			) : (
 				<React.Fragment>
 					{_.isEmpty(memes) ? (
-						<React.Fragment>
-							{debouncedValue ? <Text>no memes found</Text> : <Text>Search memes</Text>}
-						</React.Fragment>
+						<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+							{debouncedValue ? (
+								<React.Fragment>
+									<Text size={'xl'} bold variant={'white'}>
+										לא נמצאו ממים
+									</Text>
+									<Text bold variant={'white'}>
+										נסו מילה אחרת?
+									</Text>
+								</React.Fragment>
+							) : (
+								<Image style={{ width: 200, height: 200 }} source={require('./mag.png')} />
+							)}
+						</View>
 					) : (
 						<Gallery
 							onMemePress={id =>
