@@ -18,6 +18,7 @@ import generalIcon from './icons/general-icon.jpg';
 import goalstarIcon from './icons/goalstar-icon.jpg';
 import israeliTvIcon from './icons/israeli_tv-icon.jpg';
 import mediaIcon from './icons/media-icon.jpg';
+import kupa from './icons/kupa.jpg';
 
 const menu = {
 	dank: {
@@ -135,7 +136,7 @@ const menu = {
 		path: `/memes/reality`,
 		visible: true,
 		isIsraeli: true,
-		reality: 'reality',
+		name: 'reality',
 	},
 
 	commercials: {
@@ -144,7 +145,7 @@ const menu = {
 		path: `/memes/commercials`,
 		visible: true,
 		isIsraeli: true,
-		commercials: 'commercials',
+		name: 'commercials',
 	},
 
 	asi_guri: {
@@ -153,7 +154,7 @@ const menu = {
 		path: `/memes/asi_guri`,
 		visible: true,
 		isIsraeli: true,
-		asi_guri: 'asi_guri',
+		name: 'asi_guri',
 	},
 
 	media: {
@@ -161,7 +162,7 @@ const menu = {
 		icon: mediaIcon,
 		path: `/memes/media`,
 		visible: true,
-		media: 'media',
+		name: 'media',
 	},
 
 	jews: {
@@ -170,7 +171,13 @@ const menu = {
 		path: `/memes/jews`,
 		visible: true,
 		isIsraeli: true,
-		jews: 'jews',
+		name: 'jews',
+	},
+	kupa: {
+		title: 'קופה ראשית',
+		icon: kupa,
+		visible: true,
+		name: 'kupa',
 	},
 };
 

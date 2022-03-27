@@ -7,7 +7,7 @@ import Colors from '../../constants/Colors';
 
 const Categories = ({ navigation }) => {
 	return (
-		<ScrollView style={styles.container}>
+		<ScrollView contentContainerStyle={{ paddingBottom: 40 }} style={styles.container}>
 			{Object.values(menu).map(item => (
 				<MenuItem
 					key={item.name}
