@@ -23,8 +23,11 @@ export default function useCachedResources() {
 				// We might want to provide this error information to an error reporting service
 				console.warn(e);
 			} finally {
-				setLoadingComplete(true);
-				SplashScreen.hideAsync();
+				// let the user enjoy our beautiful splash screen for 1 more sec
+				setTimeout(() => {
+					setLoadingComplete(true);
+					SplashScreen.hideAsync();
+				}, 1000);
 			}
 		}
 

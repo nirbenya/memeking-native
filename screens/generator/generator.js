@@ -1,7 +1,5 @@
-import { StatusBar } from 'expo-status-bar';
-import { Platform, StyleSheet } from 'react-native';
+import { Alert, StyleSheet, View } from 'react-native';
 
-import { Text, View } from '../../components/Themed';
 import BaseWebview from '../../components/webview/webview';
 import React from 'react';
 import * as FileSystem from 'expo-file-system';
@@ -38,12 +36,12 @@ export default function Generator({ route }) {
 
 				await MediaLibrary.saveToLibraryAsync(filename);
 
-				alert('המם נשמר בהצלחה');
+				Alert.alert('מברוק', 'המם נשמר בהצלחה לגלרייה');
 			} catch (e) {
-				alert('לא הצלחנו לשמור את המם. נסו ללכת להגדרות ולתת הרשאות לאפליקציה');
+				Alert.alert('אוי', 'לא הצלחנו לשמור את המם. נסו ללכת להגדרות ולתת הרשאות לאפליקציה');
 			}
 		} else {
-			alert('איך נשמור מם בלי הרשאות אבאלה?');
+			Alert.alert('אוי', 'איך נשמור מם בלי הרשאות אבאלה? תנו לי הרשאות בהגדרות של האייפון');
 		}
 	};
 

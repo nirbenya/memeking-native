@@ -43,6 +43,7 @@ const Search = ({ navigation }) => {
 	return (
 		<View style={{ flex: 1, backgroundColor: Colors.brand }}>
 			<Input
+				autoFocus
 				value={searchTerm}
 				onChange={value => setSearchTerm(value.toLowerCase())}
 				clearButtonMode={'always'}
@@ -73,7 +74,7 @@ const Search = ({ navigation }) => {
 							onMemePress={id =>
 								navigation.navigate('Generator', {
 									key: 1,
-									path: `memes/search/generator/normal/${id}`,
+									path: `standalone-generator/normal/${id}`,
 								})
 							}
 							isLoading={isLoading}

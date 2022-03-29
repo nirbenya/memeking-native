@@ -130,15 +130,6 @@ const menu = {
 		visible: true,
 		name: 'animals',
 	},
-	reality: {
-		title: 'ריאליטי',
-		icon: realityIcon,
-		path: `/memes/reality`,
-		visible: true,
-		isIsraeli: true,
-		name: 'reality',
-	},
-
 	commercials: {
 		title: 'פרסומות',
 		icon: commercialsIcon,

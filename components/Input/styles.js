@@ -13,17 +13,17 @@ export default StyleSheet.create({
 	},
 	input: {
 		height: 55,
-		backgroundColor: Colors.brandLight,
-		color: 'white',
+		backgroundColor: Colors.white,
+		color: 'black',
 		width: '100%',
 		textAlign: 'right',
-		fontFamily: 'open-sans-hebrew-bold',
+		fontFamily: 'open-sans-hebrew',
 	},
 	icon: {
 		position: 'absolute',
 		left: 12,
 		top: 16,
 		zIndex: 9999,
-		color: 'white',
+		color: 'black',
 	},
 });

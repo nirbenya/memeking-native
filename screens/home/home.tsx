@@ -1,6 +1,5 @@
-import { StyleSheet, Image } from 'react-native';
+import { StyleSheet, Image, Text, View } from 'react-native';
 
-import { Text, View } from '../../components/Themed';
 import { RootTabScreenProps } from '../../types';
 import Button from '../../components/Button/Button';
 import * as ImagePicker from 'expo-image-picker';
@@ -22,6 +21,7 @@ export default function Home({ navigation }: RootTabScreenProps<'Home'>) {
 			navigation.navigate({
 				name: 'Generator',
 				key: 'generator-upload',
+				//@ts-ignore
 				params: { mode: 'upload', image: result.base64 },
 			});
 		}
