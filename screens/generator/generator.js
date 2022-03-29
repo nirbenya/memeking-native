@@ -36,7 +36,7 @@ export default function Generator({ route }) {
 
 				await MediaLibrary.saveToLibraryAsync(filename);
 
-				Alert.alert('מברוק', 'המם נשמר בהצלחה לגלרייה');
+				Alert.alert('מברוק', 'המם נשמר בהצלחה לגלריה');
 			} catch (e) {
 				Alert.alert('אוי', 'לא הצלחנו לשמור את המם. נסו ללכת להגדרות ולתת הרשאות לאפליקציה');
 			}

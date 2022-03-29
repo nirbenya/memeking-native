@@ -1,13 +1,30 @@
 import { WebView } from 'react-native-webview';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, ActivityIndicator } from 'react-native';
 import React from 'react';
+import Colors from '../../constants/Colors';
 
 const BaseWebview = React.forwardRef(({ path = '', injectedJavaScript, ...rest }, ref) => {
+	const [isLoading, setIsLoading] = React.useState(true);
 	return (
 		<View style={styles.container}>
+			{isLoading && (
+				<View
+					style={{
+						height: '100%',
+						flex: 1,
+						flexGrow: 1,
+						alignItems: 'center',
+						justifyContent: 'center',
+						backgroundColor: Colors.gray90,
+					}}
+				>
+					<ActivityIndicator size={'large'} />
+				</View>
+			)}
 			<WebView
+				onLoadEnd={() => setIsLoading(false)}
 				ref={ref}
-				style={{ flex: 1, flexGrow: 1 }}
+				containerStyle={{ flex: isLoading ? 0 : 1, height: isLoading ? 1 : 0 }}
 				injectedJavaScriptBeforeContentLoaded={`
                      window.isNativeApp = true;
                      
