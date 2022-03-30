@@ -7,6 +7,9 @@ import { Gallery } from '../gallery/gallery';
 import _ from 'lodash';
 import Colors from '../../constants/Colors';
 import Text from '../../components/Text/Text';
+
+import config from '../../config/config';
+
 const useDebounce = (value, delay) => {
 	// State and setters for debounced value
 	const [debouncedValue, setDebouncedValue] = React.useState(value);
@@ -35,7 +38,7 @@ const Search = ({ navigation }) => {
 	const { data: memes = [], isLoading } = useQuery(
 		['search', debouncedValue],
 		() => {
-			return axios.get(`http://www.memeking.co.il/api/search?search=${debouncedValue}`).then(res => res.data);
+			return axios.get(`${config.apiBaseUrl}/search?search=${debouncedValue}`).then(res => res.data);
 		},
 		{ enabled: debouncedValue.length > 2 },
 	);

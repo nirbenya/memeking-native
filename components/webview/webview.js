@@ -2,6 +2,7 @@ import { WebView } from 'react-native-webview';
 import { View, StyleSheet, ActivityIndicator } from 'react-native';
 import React from 'react';
 import Colors from '../../constants/Colors';
+import config from '../../config/config';
 
 const BaseWebview = React.forwardRef(({ path = '', injectedJavaScript, ...rest }, ref) => {
 	const [isLoading, setIsLoading] = React.useState(true);
@@ -24,6 +25,7 @@ const BaseWebview = React.forwardRef(({ path = '', injectedJavaScript, ...rest }
 			<WebView
 				onLoadEnd={() => setIsLoading(false)}
 				ref={ref}
+				style={{ opacity: 0.99 }}
 				containerStyle={{ flex: isLoading ? 0 : 1, height: isLoading ? 1 : 0 }}
 				injectedJavaScriptBeforeContentLoaded={`
                      window.isNativeApp = true;
@@ -31,7 +33,7 @@ const BaseWebview = React.forwardRef(({ path = '', injectedJavaScript, ...rest }
                      ${injectedJavaScript};
                        
                      `}
-				source={{ uri: `https://www.memeking.co.il/${path}` }}
+				source={{ uri: `${config.baseUrl}/${path}` }}
 				{...rest}
 			/>
 		</View>

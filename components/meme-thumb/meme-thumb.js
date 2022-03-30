@@ -8,13 +8,14 @@ function getRandomInt(min, max) {
 	return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-const MemeThumb = ({ src }) => {
+const MemeThumb = ({ src, style = {} }) => {
 	return (
 		<Image
 			source={{ uri: src }}
 			style={[
 				styles.container,
 				{ backgroundColor: backgroundVariants[getRandomInt(0, backgroundVariants.length - 1)] },
+				style,
 			]}
 		/>
 	);

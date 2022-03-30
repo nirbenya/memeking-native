@@ -1,11 +1,10 @@
 import { useQuery } from 'react-query';
 import axios from 'axios';
-
-const URL = 'http://www.memeking.co.il/api';
+import config from '../../config/config';
 
 const useMemes = ({ category }) => {
 	return useQuery(['memes', category], () => {
-		return axios.get(`${URL}/category/${category}`).then(result => result.data);
+		return axios.get(`${config.apiBaseUrl}/memes/category/${category}`).then(result => result.data);
 	});
 };
 

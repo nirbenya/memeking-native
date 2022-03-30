@@ -8,11 +8,12 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { ActivityIndicator, View } from 'react-native';
 import Text from './components/Text/Text';
 
-const queryClient = new QueryClient();
 import * as Updates from 'expo-updates';
 import React from 'react';
 import AppStateTracker from './services/app-state-tracker';
 import Colors from './constants/Colors';
+
+const queryClient = new QueryClient();
 
 export default function App() {
 	const isLoadingComplete = useCachedResources();
@@ -38,6 +39,7 @@ export default function App() {
 			console.log('error getting updates');
 		} finally {
 			setIsUpdatingNewBundle(false);
+			queryClient.resetQueries();
 		}
 	};
 

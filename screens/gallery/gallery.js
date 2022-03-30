@@ -74,7 +74,11 @@ export function Gallery({ memes, onMemePress, isLoading }) {
 	return (
 		<View style={styles.container}>
 			<PreviewModal visible={!!activeMemePreviewModal} meme={activeMemePreviewModal} />
-			<ScrollView scrollEnabled={!activeMemePreviewModal} contentContainerStyle={styles.scrollView}>
+			<ScrollView
+				alwaysBounceHorizontal={false}
+				scrollEnabled={!activeMemePreviewModal}
+				contentContainerStyle={styles.scrollView}
+			>
 				{isLoading ? (
 					<SkeletonContent
 						containerStyle={{
@@ -104,7 +108,7 @@ export function Gallery({ memes, onMemePress, isLoading }) {
 								onLongPress={() => setActiveMemePreviewModal(meme)}
 								onPress={() => onMemePress(meme.id)}
 								key={meme.id}
-								style={styles.image}
+								style={styles.imageContainer}
 							>
 								<MemeThumb src={meme.thumbPath} />
 							</TouchableHighlight>
@@ -153,14 +157,18 @@ const CategoryGallery = ({ route, navigation, category: propCategory, withFilter
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: Colors.brand,
+		backgroundColor: Colors.white,
+		margin: -2,
 	},
 	scrollView: {
 		flexWrap: 'wrap',
 		flexDirection: 'row',
+		alignItems: 'center',
+		justifyContent: 'center',
 	},
-	image: {
-		width: '33.333333333%',
+	imageContainer: {
+		width: '33%',
+		margin: '0.05%',
 		height: 120,
 	},
 });
