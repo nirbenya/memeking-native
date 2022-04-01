@@ -1,21 +1,10 @@
-import {
-	StyleSheet,
-	Modal,
-	View,
-	Image,
-	ScrollView,
-	TouchableHighlight,
-	ActivityIndicator,
-	Pressable,
-	TouchableWithoutFeedback,
-} from 'react-native';
+import { StyleSheet, Modal, View, Image, TouchableHighlight, ActivityIndicator, FlatList } from 'react-native';
 import React from 'react';
-import colors from '../../constants/Colors';
 
 import Text from '../../components/Text/Text';
 
 import useMemes from '../../queries/memes/use-memes';
-import MemeThumb from '../../components/meme-thumb/meme-thumb';
+import MemeThumb, { MEME_THUMB_HEIGHT } from '../../components/meme-thumb/meme-thumb';
 import Input from '../../components/Input/Input';
 import SkeletonContent from 'react-native-skeleton-content';
 import Colors from '../../constants/Colors';
@@ -74,55 +63,58 @@ export function Gallery({ memes, onMemePress, isLoading }) {
 	return (
 		<View style={styles.container}>
 			<PreviewModal visible={!!activeMemePreviewModal} meme={activeMemePreviewModal} />
-			<ScrollView
-				alwaysBounceHorizontal={false}
-				scrollEnabled={!activeMemePreviewModal}
-				contentContainerStyle={styles.scrollView}
-			>
-				{isLoading ? (
-					<SkeletonContent
-						containerStyle={{
-							flex: 1,
-							flexDirection: 'row',
-							flexWrap: 'wrap',
-						}}
-						isLoading
-						layout={Array(30)
-							.fill(30)
-							.map(item => ({
-								...styles.image,
-								borderRadius: 0,
-								borderColor: 'white',
-								borderWidth: 1,
-							}))}
-					/>
-				) : (
-					memes.map(meme => {
-						return (
-							<TouchableHighlight
-								pressRetentionOffset={{ top: 500, bottom: 500, left: 500, right: 500 }}
-								onPressOut={event => {
-									setActiveMemePreviewModal(null);
-								}}
-								onHide={() => setActiveMemePreviewModal(null)}
-								onLongPress={() => setActiveMemePreviewModal(meme)}
-								onPress={() => onMemePress(meme.id)}
-								key={meme.id}
-								style={styles.imageContainer}
-							>
-								<MemeThumb src={meme.thumbPath} />
-							</TouchableHighlight>
-						);
-					})
-				)}
-			</ScrollView>
+			{isLoading ? (
+				<SkeletonContent
+					containerStyle={{
+						flex: 1,
+						flexDirection: 'row',
+						flexWrap: 'wrap',
+					}}
+					isLoading
+					layout={Array(30)
+						.fill(30)
+						.map(() => ({
+							...styles.imageContainer,
+							borderRadius: 0,
+							borderColor: 'white',
+							borderWidth: 1,
+						}))}
+				/>
+			) : (
+				<FlatList
+					scrollEnabled={!activeMemePreviewModal}
+					data={memes}
+					numColumns={3}
+					keyExtractor={meme => meme?.id}
+					getItemLayout={(data, index) => ({
+						length: MEME_THUMB_HEIGHT,
+						offset: MEME_THUMB_HEIGHT * index,
+						index,
+					})}
+					renderItem={({ item: meme }) => (
+						<TouchableHighlight
+							pressRetentionOffset={{ top: 500, bottom: 500, left: 500, right: 500 }}
+							onPressOut={event => {
+								setActiveMemePreviewModal(null);
+							}}
+							onHide={() => setActiveMemePreviewModal(null)}
+							onLongPress={() => setActiveMemePreviewModal(meme)}
+							onPress={() => onMemePress(meme.id)}
+							key={meme.id}
+							style={styles.imageContainer}
+						>
+							<MemeThumb src={meme.thumbPath} />
+						</TouchableHighlight>
+					)}
+				/>
+			)}
 		</View>
 	);
 }
 
 const CategoryGallery = ({ route, navigation, category: propCategory, withFilter = true }) => {
 	const category = propCategory || route.params.category;
-	const { data: memes, isLoading } = useMemes({ category });
+	const { data: memes = [], isLoading, isFetching } = useMemes({ category });
 	const [searchText, setSearchText] = React.useState('');
 	const onSearch = text => {
 		setSearchText(text);
@@ -148,7 +140,7 @@ const CategoryGallery = ({ route, navigation, category: propCategory, withFilter
 					})
 				}
 				memes={memesArray.filter(meme => meme.description.toLowerCase().includes(searchText.toLowerCase()))}
-				isLoading={isLoading}
+				isLoading={isLoading || isFetching}
 			/>
 		</View>
 	);
@@ -160,16 +152,10 @@ const styles = StyleSheet.create({
 		backgroundColor: Colors.white,
 		margin: -2,
 	},
-	scrollView: {
-		flexWrap: 'wrap',
-		flexDirection: 'row',
-		alignItems: 'center',
-		justifyContent: 'center',
-	},
 	imageContainer: {
 		width: '33%',
 		margin: '0.05%',
-		height: 120,
+		height: MEME_THUMB_HEIGHT,
 	},
 });
 

@@ -1,6 +1,7 @@
 import { View, Image, StyleSheet } from 'react-native';
 
 const backgroundVariants = ['#95e1d3', '#eaffd0', '#fce38a', '#ff75a0'];
+export const MEME_THUMB_HEIGHT = 120;
 
 function getRandomInt(min, max) {
 	min = Math.ceil(min);
@@ -23,7 +24,7 @@ const MemeThumb = ({ src, style = {} }) => {
 
 const styles = StyleSheet.create({
 	container: {
-		height: 120,
+		height: MEME_THUMB_HEIGHT,
 	},
 });
 

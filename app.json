@@ -42,8 +42,16 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
+        "backgroundColor": "#5f4afb"
+      },
+      "versionCode": 5,
+      "permissions": [
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.ACCESS_MEDIA_LOCATION",
+        "true"
+      ],
+      "package": "memeking.exp.component"
     },
     "web": {
       "favicon": "./assets/images/favicon.png"
