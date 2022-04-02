@@ -7,6 +7,6 @@ const DEVELOPMENT_SERVER_API = 'http://localhost:8081/api';
 const PRODUCTION_SERVER_API = 'https://memeking.co.il/api';
 
 export default {
-	baseUrl: PRODUCTION_APP_URL,
-	apiBaseUrl: isDevelopment ? PRODUCTION_SERVER_API : PRODUCTION_SERVER_API,
+	baseUrl: baseUrl,
+	apiBaseUrl: isDevelopment ? DEVELOPMENT_SERVER_API : PRODUCTION_SERVER_API,
 };
