@@ -7,7 +7,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "test": "jest --watchAll"
+    "test": "jest --watchAll",
+    "publish": "expo publish --release-channel prod"
   },
   "jest": {
     "preset": "jest-expo"
