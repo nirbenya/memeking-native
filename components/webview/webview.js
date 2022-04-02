@@ -23,6 +23,7 @@ const BaseWebview = React.forwardRef(({ path = '', injectedJavaScript, ...rest }
 				</View>
 			)}
 			<WebView
+				scrollEnabled={false}
 				onLoadEnd={() => setIsLoading(false)}
 				ref={ref}
 				style={{ opacity: 0.99 }}
