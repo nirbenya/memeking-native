@@ -32,7 +32,6 @@ export default function Home({ navigation }: RootTabScreenProps<'Home'>) {
 				style={{ width: 100, height: 100 }}
 				source={require('../../assets/images/app-icon-transparent.png')}
 			/>
-
 			<Button icon={'upload'} variant={'secondary'} onPress={pickImage}>
 				העלאת תמונה
 			</Button>
