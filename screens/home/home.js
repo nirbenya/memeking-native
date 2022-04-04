@@ -35,13 +35,12 @@ export default function Home({ navigation }) {
 				source={require('../../assets/images/app-icon-transparent.png')}
 			/>
 			<View style={{ alignItems: 'center', width: width * 0.8 }}>
-				<Button block icon={'upload'} variant={'secondary'} onPress={pickImage}>
+				<Button block variant={'brand'} onPress={pickImage}>
 					העלאת תמונה
 				</Button>
 				<Button
 					block
-					icon={'square'}
-					variant={'secondary'}
+					variant={'brand'}
 					onPress={() =>
 						navigation.navigate({ name: 'Generator', key: 'clean-slate', params: { mode: 'clean' } })
 					}

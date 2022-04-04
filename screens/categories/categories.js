@@ -7,7 +7,17 @@ import Colors from '../../constants/Colors';
 
 const Categories = ({ navigation }) => {
 	return (
-		<ScrollView contentContainerStyle={{ paddingBottom: 40 }} style={styles.container}>
+		<ScrollView
+			contentContainerStyle={{
+				paddingBottom: 40,
+				flexWrap: 'wrap',
+				flexDirection: 'row',
+				justifyContent: 'space-between',
+
+				paddingHorizontal: 16,
+			}}
+			style={styles.container}
+		>
 			{Object.values(menu).map(item => (
 				<MenuItem
 					key={item.name}
@@ -28,7 +38,7 @@ const Categories = ({ navigation }) => {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: Colors.brandLight,
+		backgroundColor: Colors.background,
 		paddingTop: 16,
 	},
 });

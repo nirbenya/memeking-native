@@ -125,13 +125,29 @@ const CategoryGallery = ({ route, navigation, category: propCategory, withFilter
 	return (
 		<View style={styles.container}>
 			{withFilter && (
-				<Input
-					icon={'search'}
-					clearButtonMode={'always'}
-					value={searchText}
-					onChange={onSearch}
-					placeholder={'חיפוש בקטגוריה'}
-				/>
+				<View
+					style={{
+						padding: 8,
+						backgroundColor: 'white',
+						shadowOffset: {
+							width: 0,
+							height: 4,
+						},
+						shadowOpacity: 0.1,
+						shadowRadius: 4,
+						zIndex: 9999,
+					}}
+				>
+					<Input
+						shape={'round'}
+						variant={'border-black'}
+						icon={'search'}
+						clearButtonMode={'always'}
+						value={searchText}
+						onChange={onSearch}
+						placeholder={'חיפוש בקטגוריה'}
+					/>
+				</View>
 			)}
 			<Gallery
 				onMemePress={id =>

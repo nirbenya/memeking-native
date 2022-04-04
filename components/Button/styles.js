@@ -1,14 +1,24 @@
 import { StyleSheet } from 'react-native';
-import colors from '../../constants/Colors';
+import Colors from '../../constants/Colors';
 
 export const variants = {
 	brand: {
-		backgroundColor: colors.brand,
-		activeColor: colors.brandDarken,
+		button: {
+			backgroundColor: Colors.white,
+			activeColor: Colors.white,
+		},
+		text: {
+			color: Colors.brand,
+		},
 	},
 	secondary: {
-		backgroundColor: `rgba(0,0,0,0.2)`,
-		activeColor: `rgba(0,0,0,0.3)`,
+		button: {
+			backgroundColor: `rgba(0,0,0,0.2)`,
+			activeColor: `rgba(0,0,0,0.3)`,
+		},
+		text: {
+			color: Colors.white,
+		},
 	},
 };
 
@@ -41,12 +51,10 @@ export default StyleSheet.create({
 		flexDirection: 'row',
 		alignItems: 'center',
 		justifyContent: 'center',
-		backgroundColor: colors.brand,
-		borderRadius: 16,
+		borderRadius: 30,
 	},
 
 	text: {
-		color: 'white',
 		flex: 1,
 		alignSelf: 'center',
 		textAlign: 'center',

@@ -12,17 +12,23 @@ const styles = StyleSheet.create({
 		flex: 1,
 		alignItems: 'center',
 		justifyContent: 'center',
-		backgroundColor: 'rgba(255,255,255, 0.8)',
-		padding: 2,
-		paddingHorizontal: 22,
-		borderRadius: 16,
+		backgroundColor: 'white',
+		padding: 10,
+		borderRadius: 15,
+		shadowColor: Colors.brand,
+		shadowOffset: {
+			width: 0,
+			height: 10,
+		},
+		shadowOpacity: 0.1,
+		shadowRadius: 4,
+		marginBottom: 8,
 	},
 
 	innerContainer: {
 		flex: 1,
 		alignSelf: 'stretch',
-		flexDirection: 'row',
-		alignItems: 'center',
+		alignItems: 'flex-end',
 		justifyContent: 'space-between',
 	},
 
@@ -51,17 +57,19 @@ export default ({ title, onPress, icon }) => {
 	return (
 		<TouchableHighlight
 			style={{
-				marginHorizontal: 16,
-				marginBottom: 8,
-				borderRadius: 16,
+				borderRadius: 12,
+				width: '49%',
+				height: 90,
 			}}
 			underlayColor={'rgba(255,255,255,0.5)'}
 			onPress={onPress}
 		>
-			<View style={[styles.container, { height: 45 }]}>
+			<View style={[styles.container]}>
 				<View style={styles.innerContainer}>
 					<Image style={styles.icon} source={icon} />
-					<View style={{ flex: 1, justifyContent: 'flex-end', alignItems: 'center', flexDirection: 'row' }}>
+					<View
+						style={{ flex: 1, justifyContent: 'flex-end', alignItems: 'center', flexDirection: 'column' }}
+					>
 						<Text style={styles.text}>{title}</Text>
 					</View>
 				</View>

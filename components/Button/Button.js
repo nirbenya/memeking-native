@@ -13,23 +13,23 @@ export default ({ children, onPress, icon, variant = 'brand', size = 'lg', block
 			disabled={disabled}
 			style={[
 				styles.button,
-				variants[variant],
+				variants[variant]?.button,
 				sizes[size].button,
 				block && { width: '100%' },
 				style,
 				disabled && { opacity: 0.5 },
 			]}
-			underlayColor={variants[variant].activeColor}
+			underlayColor={variants[variant]?.button?.activeColor}
 			onPress={onPress}
 		>
 			<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', flexDirection: 'row' }}>
 				{icon && (
-					<View style={{ marginRight: 10 }}>
-						<FontAwesome name={icon} size={20} color={'white'} />
+					<View style={{ marginRight: 10, position: 'relative', top: 1 }}>
+						<FontAwesome name={icon} size={20} color={variants[variant]?.text?.color} />
 					</View>
 				)}
 
-				<Text bold style={[styles.text, sizes[size].text, icon ? { flex: 0 } : {}]}>
+				<Text bold style={[styles.text, variants[variant]?.text, sizes[size].text, icon ? { flex: 0 } : {}]}>
 					{children}
 				</Text>
 			</View>

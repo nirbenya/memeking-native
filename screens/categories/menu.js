@@ -21,14 +21,6 @@ import mediaIcon from './icons/media-icon.jpg';
 import kupa from './icons/kupa.jpg';
 
 const menu = {
-	dank: {
-		title: 'דאנק מימז',
-		icon: dankIcon,
-		path: `/memes/dank`,
-		visible: true,
-		name: 'dank',
-	},
-
 	israeli: {
 		title: 'ממים ישראליים',
 		icon: israeliIcon,
@@ -36,6 +28,14 @@ const menu = {
 		visible: true,
 		isIsraeli: true,
 		name: 'israeli',
+	},
+
+	dank: {
+		title: 'דאנק מימז',
+		icon: dankIcon,
+		path: `/memes/dank`,
+		visible: true,
+		name: 'dank',
 	},
 
 	pop: {
@@ -54,6 +54,30 @@ const menu = {
 		isIsraeli: true,
 		name: 'parlament',
 	},
+	eretz_nehederet: {
+		title: 'ארץ נהדרת',
+		icon: eretzIcon,
+		path: `/memes/eretz_nehederet`,
+		visible: true,
+		isIsraeli: true,
+		name: 'eretz_nehederet',
+	},
+
+	asi_guri: {
+		title: 'אסי וגורי',
+		icon: asiguriIcon,
+		path: `/memes/asi_guri`,
+		visible: true,
+		isIsraeli: true,
+		name: 'asi_guri',
+	},
+
+	kupa: {
+		title: 'קופה ראשית',
+		icon: kupa,
+		visible: true,
+		name: 'kupa',
+	},
 
 	classic: {
 		title: 'ממים קלאסיים',
@@ -69,15 +93,6 @@ const menu = {
 		path: `/memes/general`,
 		visible: true,
 		name: 'general',
-	},
-
-	eretz_nehederet: {
-		title: 'ארץ נהדרת',
-		icon: eretzIcon,
-		path: `/memes/eretz_nehederet`,
-		visible: true,
-		isIsraeli: true,
-		name: 'eretz_nehederet',
 	},
 
 	tv_abroad: {
@@ -139,15 +154,6 @@ const menu = {
 		name: 'commercials',
 	},
 
-	asi_guri: {
-		title: 'אסי וגורי',
-		icon: asiguriIcon,
-		path: `/memes/asi_guri`,
-		visible: true,
-		isIsraeli: true,
-		name: 'asi_guri',
-	},
-
 	media: {
 		title: 'מדיה',
 		icon: mediaIcon,
@@ -164,12 +170,7 @@ const menu = {
 		isIsraeli: true,
 		name: 'jews',
 	},
-	kupa: {
-		title: 'קופה ראשית',
-		icon: kupa,
-		visible: true,
-		name: 'kupa',
-	},
+
 	hazarot: {
 		title: 'חזרות',
 		icon: hazarot,

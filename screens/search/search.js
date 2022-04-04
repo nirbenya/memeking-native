@@ -45,15 +45,18 @@ const Search = ({ navigation }) => {
 
 	return (
 		<View style={{ flex: 1, backgroundColor: Colors.brand }}>
-			<Input
-				icon={'search'}
-				autoFocus
-				value={searchTerm}
-				onChange={value => setSearchTerm(value.toLowerCase())}
-				clearButtonMode={'always'}
-				placeholder={'חיפוש מם לפי מילת מפתח'}
-			/>
-
+			<View style={{ padding: 16 }}>
+				<Input
+					icon={'search'}
+					autoFocus
+					variant={'border-black'}
+					shape={'round'}
+					value={searchTerm}
+					onChange={value => setSearchTerm(value.toLowerCase())}
+					clearButtonMode={'always'}
+					placeholder={'חיפוש מם לפי מילת מפתח'}
+				/>
+			</View>
 			{isLoading ? (
 				<Gallery isLoading={isLoading} />
 			) : (

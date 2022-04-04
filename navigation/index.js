@@ -8,9 +8,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
-
+import { Pressable } from 'react-native';
 import Colors from '../constants/Colors';
-import useColorScheme from '../hooks/useColorScheme';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import Home from '../screens/home/home';
 import LinkingConfiguration from './LinkingConfiguration';
@@ -21,7 +20,7 @@ import PopularContainer from '../screens/popular/popular-container';
 import Search from '../screens/search/search';
 import BugsPage from '../screens/bugs-page/bugs-page';
 import menu from '../screens/categories/menu';
-
+import ModalScreen from '../screens/ModalScreen';
 export default function Navigation({ colorScheme }) {
 	return (
 		<NavigationContainer linking={LinkingConfiguration} theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
@@ -79,7 +78,7 @@ function RootNavigator() {
 			/>
 
 			<Stack.Group screenOptions={{ presentation: 'modal' }}>
-				{/*<Stack.Screen name="Modal" component={ModalScreen} />*/}
+				<Stack.Screen name="Modal" component={ModalScreen} />
 			</Stack.Group>
 		</Stack.Navigator>
 	);
@@ -123,12 +122,7 @@ function BottomTabNavigator() {
 					// 			opacity: pressed ? 0.5 : 1,
 					// 		})}
 					// 	>
-					// 		<FontAwesome
-					// 			name="info-circle"
-					// 			size={25}
-					// 			color={Colors[colorScheme].text}
-					// 			style={{ marginRight: 15 }}
-					// 		/>
+					// 		<FontAwesome name="info-circle" size={25} color={'white'} style={{ marginRight: 15 }} />
 					// 	</Pressable>
 					// ),
 				})}
