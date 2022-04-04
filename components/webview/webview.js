@@ -1,11 +1,13 @@
 import { WebView } from 'react-native-webview';
-import { View, StyleSheet, ActivityIndicator } from 'react-native';
+import { View, StyleSheet, ActivityIndicator, Platform } from 'react-native';
 import React from 'react';
 import Colors from '../../constants/Colors';
 import config from '../../config/config';
 
 const BaseWebview = React.forwardRef(({ path = '', injectedJavaScript, ...rest }, ref) => {
 	const [isLoading, setIsLoading] = React.useState(true);
+	const scalesPageToFit = Platform.OS === 'android';
+
 	return (
 		<View style={styles.container}>
 			{isLoading && (
@@ -19,10 +21,11 @@ const BaseWebview = React.forwardRef(({ path = '', injectedJavaScript, ...rest }
 						backgroundColor: Colors.gray90,
 					}}
 				>
-					<ActivityIndicator size={'large'} />
+					<ActivityIndicator size={'large'} color={'gray'} />
 				</View>
 			)}
 			<WebView
+				scalesPageToFit={scalesPageToFit}
 				scrollEnabled={false}
 				onLoadEnd={() => setIsLoading(false)}
 				ref={ref}
