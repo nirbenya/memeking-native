@@ -46,6 +46,7 @@ const Search = ({ navigation }) => {
 	return (
 		<View style={{ flex: 1, backgroundColor: Colors.brand }}>
 			<Input
+				icon={'search'}
 				autoFocus
 				value={searchTerm}
 				onChange={value => setSearchTerm(value.toLowerCase())}

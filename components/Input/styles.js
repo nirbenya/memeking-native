@@ -3,8 +3,20 @@ import { StyleSheet } from 'react-native';
 import { Dimensions } from 'react-native';
 import Colors from '../../constants/Colors';
 
-const { width } = Dimensions.get('window');
+export const variants = {
+	normal: {
+		borderRadius: 4,
+	},
+};
 
+export const sizes = {
+	default: {
+		height: 55,
+	},
+	xl: {
+		height: 120,
+	},
+};
 export default StyleSheet.create({
 	container: {
 		flex: 0,
@@ -12,7 +24,7 @@ export default StyleSheet.create({
 		justifyContent: 'flex-start',
 	},
 	input: {
-		height: 55,
+		padding: 8,
 		backgroundColor: Colors.white,
 		color: 'black',
 		width: '100%',

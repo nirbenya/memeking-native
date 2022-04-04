@@ -1,11 +1,13 @@
-import { StyleSheet, Image, Text, View } from 'react-native';
+import { StyleSheet, Image, Text, View, Dimensions } from 'react-native';
 
 import { RootTabScreenProps } from '../../types';
 import Button from '../../components/Button/Button';
 import * as ImagePicker from 'expo-image-picker';
 import Colors from '../../constants/Colors';
 
-export default function Home({ navigation }: RootTabScreenProps<'Home'>) {
+const { width } = Dimensions.get('window');
+
+export default function Home({ navigation }) {
 	const pickImage = async () => {
 		// No permissions request is necessary for launching the image library
 		let result = await ImagePicker.launchImageLibraryAsync({
@@ -27,24 +29,35 @@ export default function Home({ navigation }: RootTabScreenProps<'Home'>) {
 		}
 	};
 	return (
-		<View style={styles.container}>
+		<View style={[styles.container]}>
 			<Image
 				style={{ width: 100, height: 100 }}
 				source={require('../../assets/images/app-icon-transparent.png')}
 			/>
+			<View style={{ alignItems: 'center', width: width * 0.8 }}>
+				<Button block icon={'upload'} variant={'secondary'} onPress={pickImage}>
+					העלאת תמונה
+				</Button>
+				<Button
+					block
+					icon={'square'}
+					variant={'secondary'}
+					onPress={() =>
+						navigation.navigate({ name: 'Generator', key: 'clean-slate', params: { mode: 'clean' } })
+					}
+				>
+					לוח חלק
+				</Button>
 
-			<Button icon={'upload'} variant={'secondary'} onPress={pickImage}>
-				העלאת תמונה
-			</Button>
-			<Button
-				icon={'square'}
-				variant={'secondary'}
-				onPress={() =>
-					navigation.navigate({ name: 'Generator', key: 'clean-slate', params: { mode: 'clean' } })
-				}
-			>
-				לוח חלק
-			</Button>
+				<Button
+					style={{ marginTop: 50, width: 150 }}
+					size={'xs'}
+					variant={'secondary'}
+					onPress={() => navigation.navigate({ name: 'BugsPage', key: 'bugs-page' })}
+				>
+					בקשות ודיווחים על באגים
+				</Button>
+			</View>
 		</View>
 	);
 }

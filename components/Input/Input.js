@@ -3,16 +3,16 @@ import { TextInput, View } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 
 // style
-import styles from './styles';
+import styles, { sizes, variants } from './styles';
 
-const Input = ({ value, onChange, style, autoFocus, ...rest }) => {
+const Input = ({ value, onChange, style, autoFocus, icon, variant, size = 'default', ...rest }) => {
 	return (
 		<View style={[styles.container, style]}>
-			<FontAwesome size={20} name={'search'} style={styles.icon} />
+			{icon && <FontAwesome size={20} name={icon} style={styles.icon} />}
 			<TextInput
 				autoFocus={autoFocus}
 				placeholderTextColor={'black'}
-				style={styles.input}
+				style={[styles.input, variants[variant], sizes[size]]}
 				onChangeText={onChange}
 				value={value}
 				{...rest}

@@ -19,6 +19,7 @@ import Categories from '../screens/categories/categories';
 import CategoryGallery from '../screens/gallery/gallery';
 import PopularContainer from '../screens/popular/popular-container';
 import Search from '../screens/search/search';
+import BugsPage from '../screens/bugs-page/bugs-page';
 
 export default function Navigation({ colorScheme }) {
 	return (
@@ -62,6 +63,18 @@ function RootNavigator() {
 				}}
 				name="CategoryGallery"
 				component={CategoryGallery}
+			/>
+			<Stack.Screen
+				options={{
+					headerTitleStyle,
+					headerStyle: { backgroundColor: Colors.brand },
+					headerBackTitleStyle: { color: 'white' },
+					headerBackTitle: 'חזרה',
+					headerTintColor: 'white',
+					title: '',
+				}}
+				name="BugsPage"
+				component={BugsPage}
 			/>
 
 			<Stack.Group screenOptions={{ presentation: 'modal' }}>

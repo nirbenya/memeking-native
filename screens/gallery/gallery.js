@@ -126,6 +126,7 @@ const CategoryGallery = ({ route, navigation, category: propCategory, withFilter
 		<View style={styles.container}>
 			{withFilter && (
 				<Input
+					icon={'search'}
 					clearButtonMode={'always'}
 					value={searchText}
 					onChange={onSearch}
@@ -150,7 +151,7 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		backgroundColor: Colors.white,
-		margin: -2,
+		marginHorizontal: -2,
 	},
 	imageContainer: {
 		width: '33%',

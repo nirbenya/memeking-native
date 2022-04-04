@@ -1,8 +1,5 @@
 import { StyleSheet } from 'react-native';
 import colors from '../../constants/Colors';
-import { Dimensions } from 'react-native';
-
-const { width } = Dimensions.get('window');
 
 export const variants = {
 	brand: {
@@ -15,16 +12,37 @@ export const variants = {
 	},
 };
 
+export const sizes = {
+	xs: {
+		button: {
+			height: 24,
+			marginVertical: 10,
+		},
+		text: {
+			fontSize: 12,
+		},
+	},
+	lg: {
+		button: {
+			height: 60,
+			marginVertical: 10,
+		},
+		text: {
+			flex: 1,
+			alignSelf: 'center',
+			textAlign: 'center',
+			fontSize: 20,
+		},
+	},
+};
+
 export default StyleSheet.create({
 	button: {
 		flexDirection: 'row',
 		alignItems: 'center',
 		justifyContent: 'center',
 		backgroundColor: colors.brand,
-		height: 60,
 		borderRadius: 8,
-		width: width * 0.8,
-		marginVertical: 10,
 	},
 
 	text: {
@@ -32,6 +50,5 @@ export default StyleSheet.create({
 		flex: 1,
 		alignSelf: 'center',
 		textAlign: 'center',
-		fontSize: 20,
 	},
 });
