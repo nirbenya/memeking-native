@@ -1,6 +1,6 @@
 import { View, Image, StyleSheet } from 'react-native';
 
-const backgroundVariants = ['#95e1d3', '#eaffd0', '#fce38a', '#ff75a0'];
+const backgroundVariants = ['#F8EBFF', '#67BAA7', '#F8EBFF', '#A783FF'];
 export const MEME_THUMB_HEIGHT = 120;
 
 function getRandomInt(min, max) {

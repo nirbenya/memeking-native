@@ -18,7 +18,7 @@ export default {
 	},
 	brand: '#5f4afb',
 	brandDarken: '#524A74',
-	brandLight: '#b3a8fd',
+	brandLight: '#EDBFFF',
 
 	gray30: '#4d4d4d',
 	gray40: '#666',

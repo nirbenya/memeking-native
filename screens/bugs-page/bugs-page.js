@@ -59,6 +59,7 @@ const BugsPage = () => {
 					</View>
 					<View style={{ marginTop: 8, marginBottom: 24 }}>
 						<Input
+							blurOnSubmit
 							numberOfLines={3}
 							multiline
 							variant={'normal'}

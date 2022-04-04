@@ -16,7 +16,7 @@ export const sizes = {
 	xs: {
 		button: {
 			height: 24,
-			marginVertical: 10,
+			paddingHorizontal: 6,
 		},
 		text: {
 			fontSize: 12,
@@ -42,7 +42,7 @@ export default StyleSheet.create({
 		alignItems: 'center',
 		justifyContent: 'center',
 		backgroundColor: colors.brand,
-		borderRadius: 8,
+		borderRadius: 16,
 	},
 
 	text: {

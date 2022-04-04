@@ -10,7 +10,7 @@ import mashupsIcon from './icons/mashups-icon.jpg';
 import asiguriIcon from './icons/asi_guri-icon.jpg';
 import classicIcon from './icons/classic-icon.jpg';
 import parlamentIcon from './icons/parlament-icon.jpg';
-import realityIcon from './icons/reality-icon.jpg';
+import hazarot from './icons/nina.png';
 import standupIcon from './icons/standup-icon.jpg';
 import tvAbroadIcon from './icons/tv_abroad-icon.jpg';
 import commercialsIcon from './icons/commercials-icon.jpg';
@@ -169,6 +169,12 @@ const menu = {
 		icon: kupa,
 		visible: true,
 		name: 'kupa',
+	},
+	hazarot: {
+		title: 'חזרות',
+		icon: hazarot,
+		visible: true,
+		name: 'hazarot',
 	},
 };
 

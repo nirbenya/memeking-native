@@ -28,7 +28,7 @@ const Categories = ({ navigation }) => {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: Colors.brand,
+		backgroundColor: Colors.brandLight,
 		paddingTop: 16,
 	},
 });

@@ -12,10 +12,10 @@ const styles = StyleSheet.create({
 		flex: 1,
 		alignItems: 'center',
 		justifyContent: 'center',
-		backgroundColor: 'rgba(0,0,0,0.2)',
-		padding: 15,
+		backgroundColor: 'rgba(255,255,255, 0.8)',
+		padding: 2,
 		paddingHorizontal: 22,
-		borderRadius: 8,
+		borderRadius: 16,
 	},
 
 	innerContainer: {
@@ -27,14 +27,14 @@ const styles = StyleSheet.create({
 	},
 
 	icon: {
-		width: 45,
-		height: 45,
+		width: 30,
+		height: 30,
 		borderRadius: 22,
 	},
 
 	text: {
 		fontSize: 18,
-		color: 'white',
+		color: Colors.black,
 	},
 
 	label: {
@@ -53,18 +53,16 @@ export default ({ title, onPress, icon }) => {
 			style={{
 				marginHorizontal: 16,
 				marginBottom: 8,
-				borderRadius: 8,
+				borderRadius: 16,
 			}}
-			underlayColor={'rgba(0,0,0,0.2)'}
+			underlayColor={'rgba(255,255,255,0.5)'}
 			onPress={onPress}
 		>
-			<View style={[styles.container, { height: 65 }]}>
+			<View style={[styles.container, { height: 45 }]}>
 				<View style={styles.innerContainer}>
 					<Image style={styles.icon} source={icon} />
 					<View style={{ flex: 1, justifyContent: 'flex-end', alignItems: 'center', flexDirection: 'row' }}>
-						<Text bold style={styles.text}>
-							{title}
-						</Text>
+						<Text style={styles.text}>{title}</Text>
 					</View>
 				</View>
 			</View>

@@ -20,6 +20,7 @@ import CategoryGallery from '../screens/gallery/gallery';
 import PopularContainer from '../screens/popular/popular-container';
 import Search from '../screens/search/search';
 import BugsPage from '../screens/bugs-page/bugs-page';
+import menu from '../screens/categories/menu';
 
 export default function Navigation({ colorScheme }) {
 	return (
@@ -53,14 +54,14 @@ function RootNavigator() {
 				component={Generator}
 			/>
 			<Stack.Screen
-				options={{
+				options={({ route }) => ({
 					headerTitleStyle,
 					headerStyle: { backgroundColor: Colors.brand },
 					headerBackTitleStyle: { color: 'white' },
 					headerBackTitle: 'חזרה',
 					headerTintColor: 'white',
-					title: '',
-				}}
+					title: menu[route.params.category]?.title,
+				})}
 				name="CategoryGallery"
 				component={CategoryGallery}
 			/>
@@ -93,17 +94,16 @@ const BottomTab = createBottomTabNavigator();
 const headerTitleStyle = { color: 'white', fontFamily: 'open-sans-hebrew-bold' };
 
 function BottomTabNavigator() {
-	const colorScheme = useColorScheme();
-
 	return (
 		<BottomTab.Navigator
 			initialRouteName="Home"
 			screenOptions={{
 				tabBarStyle: {
-					backgroundColor: Colors.brandDarken,
-					borderTopWidth: 0,
+					backgroundColor: Colors.brand,
+					borderTopWidth: 1,
+					borderTopColor: 'white',
 				},
-				tabBarLabelStyle: { fontFamily: 'open-sans-hebrew' },
+				tabBarLabelStyle: { fontFamily: 'open-sans-hebrew', fontSize: 12 },
 				tabBarActiveTintColor: Colors.brandLight,
 				tabBarInactiveTintColor: 'white',
 				headerStyle: { backgroundColor: Colors.brand, borderBottomColor: 'white', borderBottomWidth: 1 },
@@ -182,5 +182,5 @@ function BottomTabNavigator() {
  * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
  */
 function TabBarIcon(props) {
-	return <FontAwesome size={30} style={{ marginBottom: -3 }} {...props} />;
+	return <FontAwesome size={20} style={{ marginBottom: -3 }} {...props} />;
 }
