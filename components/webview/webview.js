@@ -34,7 +34,7 @@ const BaseWebview = React.forwardRef(({ path = '', injectedJavaScript, ...rest }
 				injectedJavaScriptBeforeContentLoaded={`
                      window.isNativeApp = true;
                      
-                     ${injectedJavaScript};
+                     ${injectedJavaScript || ''};
                        
                      `}
 				source={{ uri: `${config.baseUrl}/${path}` }}

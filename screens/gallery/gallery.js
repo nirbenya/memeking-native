@@ -36,19 +36,24 @@ const PreviewModal = ({ visible, meme, onHide }) => {
 						style={isLoading ? { height: 1, width: 1 } : { height: 350, width: 350, borderRadius: 8 }}
 					/>
 					{!isLoading && (
-						<View
-							style={{
-								flexDirection: 'row',
-								marginTop: 16,
-								gap: '8px',
-								justifyContent: 'center',
-								alignItems: 'center',
-							}}
-						>
-							<FontAwesome color={'white'} size={20} name={'heart'} />
-							<Text style={{ marginLeft: 8 }} variant={'white'} bold>
-								{meme?.rating?.toLocaleString?.()}
+						<View style={{ marginTop: 16 }}>
+							<Text bold variant={'white'}>
+								{meme?.description || ''}
 							</Text>
+							<View
+								style={{
+									flexDirection: 'row',
+									marginTop: 16,
+									gap: '8px',
+									justifyContent: 'center',
+									alignItems: 'center',
+								}}
+							>
+								<FontAwesome color={'white'} size={13} name={'download'} />
+								<Text style={{ marginLeft: 8 }} variant={'white'} bold>
+									{meme?.rating?.toLocaleString?.() || ''}
+								</Text>
+							</View>
 						</View>
 					)}
 				</React.Fragment>
