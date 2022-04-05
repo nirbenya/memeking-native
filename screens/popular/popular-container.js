@@ -3,6 +3,7 @@ import { TouchableHighlight, TouchableNativeFeedback, TouchableOpacity, View } f
 import CategoryGallery from '../gallery/gallery';
 import Colors from '../../constants/Colors';
 import Text from '../../components/Text/Text';
+
 const Tab = ({ children, active, onPress, style }) => {
 	return (
 		<TouchableHighlight
@@ -12,14 +13,13 @@ const Tab = ({ children, active, onPress, style }) => {
 			style={{
 				alignItems: 'center',
 				justifyContent: 'center',
-				borderColor: active ? Colors.brand : Colors.gray80,
-				borderBottomWidth: 3,
+				backgroundColor: active ? Colors.brandDarken : Colors.gray90,
 				flex: 1,
 				...style,
 			}}
 		>
 			<View style={{ height: 48, justifyContent: 'center', alignItems: 'center' }}>
-				<Text bold variant={active ? 'brand' : 'gray30'}>
+				<Text bold variant={active ? 'white' : 'gray30'}>
 					{children}
 				</Text>
 			</View>
@@ -35,16 +35,21 @@ const PopularContainer = ({ navigation }) => {
 					flexDirection: 'row',
 					alignItems: 'center',
 					justifyContent: 'space-between',
+					padding: 8,
 				}}
 			>
 				<Tab
-					style={{ borderRightWidth: 1, borderRightColor: Colors.gray80 }}
+					style={{ borderTopLeftRadius: 8, borderBottomLeftRadius: 8 }}
 					onPress={() => setTab('all-time-popular')}
 					active={tab === 'all-time-popular'}
 				>
 					הפופולואריים בכל הזמנים
 				</Tab>
-				<Tab onPress={() => setTab('popular')} active={tab === 'popular'}>
+				<Tab
+					style={{ borderTopRightRadius: 8, borderBottomRightRadius: 8 }}
+					onPress={() => setTab('popular')}
+					active={tab === 'popular'}
+				>
 					הפופולואריים השבוע
 				</Tab>
 			</View>

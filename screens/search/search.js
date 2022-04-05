@@ -54,7 +54,7 @@ const Search = ({ navigation }) => {
 					value={searchTerm}
 					onChange={value => setSearchTerm(value.toLowerCase())}
 					clearButtonMode={'always'}
-					placeholder={'חיפוש מם לפי מילת מפתח'}
+					placeholder={'חיפוש'}
 				/>
 			</View>
 			{isLoading ? (
@@ -62,7 +62,7 @@ const Search = ({ navigation }) => {
 			) : (
 				<React.Fragment>
 					{_.isEmpty(memes) ? (
-						<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+						<View style={{ flex: 1, alignItems: 'center', paddingTop: 60 }}>
 							{debouncedValue ? (
 								<React.Fragment>
 									<Text size={'xl'} bold variant={'white'}>
@@ -73,7 +73,23 @@ const Search = ({ navigation }) => {
 									</Text>
 								</React.Fragment>
 							) : (
-								<Image style={{ width: 200, height: 200 }} source={require('./mag.png')} />
+								<View style={{ alignItems: 'center' }}>
+									<Image style={{ width: 300, height: 200 }} source={require('./mag-2.png')} />
+									<View style={{ alignItems: 'center' }}>
+										<Text
+											style={{ marginBottom: 8 }}
+											align={'center'}
+											bold
+											variant={'white'}
+											size={'xl'}
+										>
+											חיפוש ממים
+										</Text>
+										<Text variant={'white'} align={'center'}>
+											חפשו ממים לפי טקסט או סוג
+										</Text>
+									</View>
+								</View>
 							)}
 						</View>
 					) : (

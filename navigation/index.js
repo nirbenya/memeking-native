@@ -47,7 +47,7 @@ function RootNavigator() {
 					headerBackTitleStyle: { color: 'white' },
 					headerBackTitle: 'חזרה',
 					headerTintColor: 'white',
-					title: 'עריכת מם',
+					title: 'יצירת מם',
 				}}
 				name="Generator"
 				component={Generator}
@@ -133,7 +133,7 @@ function BottomTabNavigator() {
 				options={{
 					headerTitleStyle,
 
-					title: 'פופולארים',
+					title: 'פופולאריים',
 					tabBarIcon: ({ color }) => <TabBarIcon name="trophy" color={color} />,
 				}}
 			/>
