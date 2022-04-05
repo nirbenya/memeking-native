@@ -33,6 +33,7 @@ const BaseWebview = React.forwardRef(({ path = '', injectedJavaScript, ...rest }
 				containerStyle={{ flex: isLoading ? 0 : 1, height: isLoading ? 1 : 0 }}
 				injectedJavaScriptBeforeContentLoaded={`
                      window.isNativeApp = true;
+                     window.nativeAppPlatform = "android";
                      
                      ${injectedJavaScript || ''};
                        
