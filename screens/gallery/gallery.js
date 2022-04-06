@@ -31,12 +31,13 @@ const PreviewModal = ({ visible, meme, onHide }) => {
 				{isLoading ? <ActivityIndicator size={'large'} color={'#fff'} /> : null}
 				<React.Fragment>
 					<Image
+						resizeMode={'contain'}
 						onLoad={() => setIsLoading(false)}
 						source={{ uri: meme?.urlPath }}
 						style={isLoading ? { height: 1, width: 1 } : { height: 350, width: 350, borderRadius: 8 }}
 					/>
 					{!isLoading && (
-						<View style={{ marginTop: 16 }}>
+						<View style={{ flexShrink: 0, marginTop: 16 }}>
 							<View style={{ paddingHorizontal: 50 }}>
 								<Text align={'center'} bold variant={'white'}>
 									{meme?.description || ''}
