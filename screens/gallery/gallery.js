@@ -37,9 +37,11 @@ const PreviewModal = ({ visible, meme, onHide }) => {
 					/>
 					{!isLoading && (
 						<View style={{ marginTop: 16 }}>
-							<Text bold variant={'white'}>
-								{meme?.description || ''}
-							</Text>
+							<View style={{ paddingHorizontal: 50 }}>
+								<Text align={'center'} bold variant={'white'}>
+									{meme?.description || ''}
+								</Text>
+							</View>
 							<View
 								style={{
 									flexDirection: 'row',
