@@ -4,6 +4,11 @@ import BaseWebview from '../../components/webview/webview';
 import React from 'react';
 import * as FileSystem from 'expo-file-system';
 import * as MediaLibrary from 'expo-media-library';
+import * as Sharing from 'expo-sharing';
+
+const getBase64ImageFromRawData = raw => {
+	return raw.split('data:image/png;base64,')[1];
+};
 
 const modes = {
 	upload: {
@@ -20,8 +25,7 @@ export default function Generator({ route }) {
 	const image = route.params.image;
 	const path = route.params.path;
 
-	const onSave = async event => {
-		const data = event.nativeEvent.data;
+	const onSave = async data => {
 		const base64Code = data.split('data:image/png;base64,')[1];
 
 		const filename = FileSystem.documentDirectory + 'memeking.png';
@@ -45,10 +49,49 @@ export default function Generator({ route }) {
 		}
 	};
 
+	const onShare = async data => {
+		const filename = FileSystem.documentDirectory + 'memeking.png';
+		const base64Code = getBase64ImageFromRawData(data);
+
+		try {
+			await FileSystem.writeAsStringAsync(filename, base64Code, {
+				encoding: FileSystem.EncodingType.Base64,
+			});
+		} catch (e) {
+			//Alert.alert('אוי', 'לא הצלחנו לשתף את המם. נסו ללכת להגדרות ולתת הרשאות לאפליקציה');
+		}
+
+		await Sharing.shareAsync(filename);
+	};
+
+	const onPostMessage = event => {
+		let data = event.nativeEvent.data;
+		let value, postMessageType;
+
+		// for backward compatability. we check if postMessage has a type (postMessageType).
+		// if it has we check the type and send to the correct action function.
+		// if not - moving to default flow of downloading a meme a meme.
+		try {
+			const objectData = JSON.parse(data || '{}') || {};
+			postMessageType = objectData.postMessageType;
+			value = objectData.value;
+		} catch (e) {
+			data = event.nativeEvent.data;
+		}
+
+		if (postMessageType) {
+			if (postMessageType === 'MEME_SHARE') {
+				onShare(value);
+			}
+		} else {
+			onSave(data);
+		}
+	};
+
 	return (
 		<View style={styles.container}>
 			<BaseWebview
-				onMessage={onSave}
+				onMessage={onPostMessage}
 				path={path || modes[mode].path}
 				injectedJavaScript={modes[mode]?.getInjectedJs?.({ image })}
 			/>

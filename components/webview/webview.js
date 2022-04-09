@@ -34,6 +34,8 @@ const BaseWebview = React.forwardRef(({ path = '', injectedJavaScript, ...rest }
 				injectedJavaScriptBeforeContentLoaded={`
                      window.isNativeApp = true;
                      window.nativeAppPlatform = "${Platform.OS}";
+                     window.isNativeAppDevelopment = ${config.isDevelopment};
+                     window.isNativeAppShareEnabled = true;
                      
                      ${injectedJavaScript || ''};
                        

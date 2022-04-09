@@ -43,19 +43,25 @@ const PopularContainer = ({ navigation }) => {
 					onPress={() => setTab('all-time-popular')}
 					active={tab === 'all-time-popular'}
 				>
-					הפופולואריים בכל הזמנים
+					בכל הזמנים
+				</Tab>
+				<Tab onPress={() => setTab('popular')} active={tab === 'popular'}>
+					השבוע
 				</Tab>
 				<Tab
 					style={{ borderTopRightRadius: 8, borderBottomRightRadius: 8 }}
-					onPress={() => setTab('popular')}
-					active={tab === 'popular'}
+					onPress={() => setTab('daily-popular')}
+					active={tab === 'daily-popular'}
 				>
-					הפופולואריים השבוע
+					היום
 				</Tab>
 			</View>
 			{tab === 'popular' && <CategoryGallery withFilter={false} category={'popular'} navigation={navigation} />}
 			{tab === 'all-time-popular' && (
 				<CategoryGallery withFilter={false} category={'all-time-popular'} navigation={navigation} />
+			)}
+			{tab === 'daily-popular' && (
+				<CategoryGallery withFilter={false} category={'daily-popular'} navigation={navigation} />
 			)}
 		</View>
 	);

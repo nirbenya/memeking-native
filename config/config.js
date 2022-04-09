@@ -9,4 +9,5 @@ const PRODUCTION_SERVER_API = 'https://memeking.co.il/api';
 export default {
 	baseUrl,
 	apiBaseUrl: isDevelopment ? DEVELOPMENT_SERVER_API : PRODUCTION_SERVER_API,
+	isDevelopment,
 };
