@@ -31,9 +31,13 @@ export default function Generator({ route }) {
 		const filename = FileSystem.documentDirectory + 'memeking.png';
 
 		const permission = await MediaLibrary.requestPermissionsAsync();
-
 		if (permission.status === 'granted') {
 			try {
+				try {
+					await FileSystem.deleteAsync(FileSystem.documentDirectory);
+				} catch (e) {
+					console.log('could not delete folder of previous stuff');
+				}
 				await FileSystem.writeAsStringAsync(filename, base64Code, {
 					encoding: FileSystem.EncodingType.Base64,
 				});
@@ -42,10 +46,10 @@ export default function Generator({ route }) {
 
 				Alert.alert('מברוק', 'המם נשמר בהצלחה לגלריה');
 			} catch (e) {
-				Alert.alert('אוי', 'לא הצלחנו לשמור את המם. נסו ללכת להגדרות ולתת הרשאות לאפליקציה');
+				Alert.alert('אוי', 'מאיזושהי סיבה לה הצלחנו לשמור את המם, פנו אלינו במייל: nirbenya@gmail.com');
 			}
 		} else {
-			Alert.alert('אוי', 'איך נשמור מם בלי הרשאות אבאלה? תנו לי הרשאות בהגדרות של האייפון');
+			Alert.alert('אוי', 'איך נשמור מם בלי הרשאות אבאלה? תנו לי הרשאות בהגדרות של המכשיר');
 		}
 	};
 
@@ -54,11 +58,16 @@ export default function Generator({ route }) {
 		const base64Code = getBase64ImageFromRawData(data);
 
 		try {
+			try {
+				await FileSystem.deleteAsync(FileSystem.documentDirectory);
+			} catch (e) {
+				console.log('could not delete folder of previous stuff');
+			}
 			await FileSystem.writeAsStringAsync(filename, base64Code, {
 				encoding: FileSystem.EncodingType.Base64,
 			});
 		} catch (e) {
-			//Alert.alert('אוי', 'לא הצלחנו לשתף את המם. נסו ללכת להגדרות ולתת הרשאות לאפליקציה');
+			Alert.alert('אוי', 'לא הצלחנו לשתף את המם. ');
 		}
 
 		await Sharing.shareAsync(filename);

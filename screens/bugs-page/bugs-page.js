@@ -75,6 +75,9 @@ const BugsPage = () => {
 							שליחה
 						</Button>
 					</View>
+					<View style={{ marginTop: 'auto', marginBottom: 16 }}>
+						<Text variant={'white'}>v10</Text>
+					</View>
 				</View>
 			</View>
 		</View>
