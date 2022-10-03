@@ -28,19 +28,18 @@ export default function Generator({ route }) {
 	const onSave = async data => {
 		const base64Code = data.split('data:image/png;base64,')[1];
 
-		const filename = FileSystem.documentDirectory + 'memeking.png';
+		const filename = FileSystem.documentDirectory + `memeking${Math.random()}.png`;
 
 		const permission = await MediaLibrary.requestPermissionsAsync();
 		if (permission.status === 'granted') {
 			try {
 				try {
-					await FileSystem.deleteAsync(FileSystem.documentDirectory);
+					await FileSystem.writeAsStringAsync(filename, base64Code, {
+						encoding: FileSystem.EncodingType.Base64,
+					});
 				} catch (e) {
-					console.log('could not delete folder of previous stuff');
+					alert('could not write file to storage');
 				}
-				await FileSystem.writeAsStringAsync(filename, base64Code, {
-					encoding: FileSystem.EncodingType.Base64,
-				});
 
 				await MediaLibrary.saveToLibraryAsync(filename);
 
@@ -54,15 +53,10 @@ export default function Generator({ route }) {
 	};
 
 	const onShare = async data => {
-		const filename = FileSystem.documentDirectory + 'memeking.png';
+		const filename = FileSystem.documentDirectory + `memeking${Math.random()}.png`;
 		const base64Code = getBase64ImageFromRawData(data);
 
 		try {
-			try {
-				await FileSystem.deleteAsync(FileSystem.documentDirectory);
-			} catch (e) {
-				console.log('could not delete folder of previous stuff');
-			}
 			await FileSystem.writeAsStringAsync(filename, base64Code, {
 				encoding: FileSystem.EncodingType.Base64,
 			});
